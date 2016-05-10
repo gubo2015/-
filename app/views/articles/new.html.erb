@@ -1,6 +1,16 @@
   <h1>我的博客</h1>
 
   <%= form_for :article, url: articles_path do |f| %>
+    <% if @article.errors.any? %>
+    <div id="errors_explanation">
+      <h2>错误信息</h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
     <p>
       <%= f.label :标题 %><br>
       <%= f.text_field :title%>
