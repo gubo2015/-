@@ -7,6 +7,10 @@
     <strong>内容：</strong>
     <%= @article.text %>
   </p>
+  <h2> 评论 </h2>
+  <%= render @article.comments %>
+  <h2>添加评论</h2>
+  <%= render "comments/form" %>
 
   <%= link_to '返 回', articles_path%>
   <%= link_to '编辑', edit_article_path(@article)%>
